@@ -1,0 +1,19 @@
+{
+  "block.hender.hender_tool_block": "§6恒块",
+  "block.hender.hender_tool_ore": "§6恒矿",
+  "block.hender.shit_block": "§6豪赤的",
+  "item.hender.hender_tool": "§8小恒某人",
+  "item.hender.hender_tool_boots": "§6恒之靴子",
+  "item.hender.hender_tool_chestplate": "§6恒之胸甲",
+  "item.hender.hender_tool_helmet": "§6恒之头盔",
+  "item.hender.hender_tool_leggings": "§6恒之护腿",
+  "item.hender.henderarmoritemboots.shift_tooltip": "§9§o此物为§6§m恒之靴子§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r",
+  "item.hender.henderarmoritemboots.tooltip": "§9按下§6§oshift§r§9显示工具提示",
+  "item.hender.henderarmoritemchestplate.shift_tooltip": "§9§o此物为§6§m恒之胸甲§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r",
+  "item.hender.henderarmoritemchestplate.tooltip": "§9按下§6§oshift§r§9显示工具提示",
+  "item.hender.henderarmoritemhelmet.shift_tooltip": "§9§o此物为§6§m恒之头盔§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r",
+  "item.hender.henderarmoritemhelmet.tooltip": "§9按下§6§oshift§r§9显示工具提示",
+  "item.hender.henderarmoritemleggings.shift_tooltip": "§9§o此物为§6§m恒之护腿§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r",
+  "item.hender.henderarmoritemleggings.tooltip": "§9按下§6§oshift§r§9显示工具提示",
+  "itemGroup.hender.hender_group": "§4Hender专属"
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hender_tool_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "hender:hender_tool_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:hender_tool_from_smelting_hender_tool_boots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hender_tool_boots"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:hender_tool_from_smelting_hender_tool_boots"
+    ]
+  }
+}

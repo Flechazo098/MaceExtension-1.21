@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "hender_tool",
+  "ingredient": {
+    "item": "hender:hender_tool_boots"
+  },
+  "result": {
+    "id": "hender:hender_tool"
+  }
+}

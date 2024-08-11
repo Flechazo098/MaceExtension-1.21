@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "hender:hender_tool_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "hender:hender_tool"
+  }
+}
