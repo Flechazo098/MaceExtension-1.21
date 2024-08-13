@@ -4,7 +4,6 @@ import com.hender.flechazo.block.ModBlocks;
 import com.hender.flechazo.item.ModItems;
 import com.hender.flechazo.villager.HenderVillagers;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
-import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffers;
 
 

@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class HenderVillagers {
     public static final VillagerProfession HENGMOU_MASTER = register("hengmou_master",
-            HenderPointOfInterestTypes.HENGMOU_KEY, SoundEvents.BLOCK_BEACON_POWER_SELECT);
+            HenderPointOfInterestTypes.HENGMOU_KEY, SoundEvents.ENTITY_VILLAGER_WORK_ARMORER);
     public static final PointOfInterestType HENGMOU_POI = registerPointOfInterestType("hengmou_poi", ModBlocks.HENDER_TOOL_BLOCK);
     private static VillagerProfession register(String id, RegistryKey<PointOfInterestType> heldWorkstation, @Nullable SoundEvent workSound){
         return Registry.register(Registries.VILLAGER_PROFESSION, Identifier.of(Hender.MOD_ID, id),
