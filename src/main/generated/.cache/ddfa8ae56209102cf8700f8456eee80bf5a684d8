@@ -1,4 +1,4 @@
-// 1.21	2024-08-11T22:39:36.4226599	Hender/Model Definitions
+// 1.21	2024-08-13T21:12:50.0638779	Hender/Model Definitions
 0860a29d073de11b11b011a630f024f354f5570b assets\hender\models\item\hender_tool_block.json
 20370ea4bf855581edc21c94c586302f8ea62f5f assets\hender\models\item\hender_tool_leggings.json
 e2a1528e073110abb224e5bb91cfe9e9df66b349 assets\hender\models\item\hender_tool_helmet_lapis_trim.json
@@ -30,8 +30,8 @@ ec35d0a13d0fb4a3716cc89c6d0fd5bc930dfbe9 assets\hender\models\item\hender_tool_b
 5b0513636fc111ceb8fcc9307be44a0d58af08c9 assets\hender\models\item\hender_tool_boots_netherite_trim.json
 2db63414806bc10d79db01cf1626ed7320703c1e assets\hender\models\item\shit_block.json
 cc20f9f1cc9cfe5fa1313584322aab7fa006fafb assets\hender\models\item\hender_tool_chestplate_gold_trim.json
-de91fe31bc8f4bcef8990d6c5adae6a2dfa64e8c assets\hender\models\item\hender_tool_helmet_diamond_trim.json
 fc6e90874708d928656bdea6e91faa78faf82ed1 assets\hender\blockstates\shit_block.json
+de91fe31bc8f4bcef8990d6c5adae6a2dfa64e8c assets\hender\models\item\hender_tool_helmet_diamond_trim.json
 856d8d65c99b067f7f5798050b2198686062cebe assets\hender\models\item\hender_tool_boots_gold_trim.json
 b69c46c4e9e54a5b2c20a12bb5dc890131288ffb assets\hender\models\item\hender_tool_boots_lapis_trim.json
 05013fb2f3e16cb8c790d7392bc446a56044c123 assets\hender\models\item\hender_tool_helmet.json
@@ -43,8 +43,8 @@ e8d8d0e80f91bf781ad7cc25ba41c377993a5865 assets\hender\models\item\hender_tool_b
 381793a1ff3b3ce8bbee7a8cf7a5543f6911757b assets\hender\blockstates\hender_tool_block.json
 c146caef68312217e14db053c35751ab883af88d assets\hender\models\item\hender_tool_leggings_diamond_trim.json
 b6e72cf5c13e404bf1faaf5d8f6b324b0f0b20a9 assets\hender\models\item\hender_tool_leggings_netherite_trim.json
-12adc5a3d002df16a0a8129561c89f39506d6727 assets\hender\models\item\hender_tool_helmet_copper_trim.json
 7cd0184a893612aced138ea921f5af0f6a6bb370 assets\hender\models\item\hender_tool_helmet_gold_trim.json
+12adc5a3d002df16a0a8129561c89f39506d6727 assets\hender\models\item\hender_tool_helmet_copper_trim.json
 52de184abe7e08cd9c9b1a47fb70bdf1694d264d assets\hender\models\item\hender_tool_chestplate_quartz_trim.json
 cb9766ee0a2a3011e892429218f2eb23e8e58749 assets\hender\models\item\hender_tool_boots_quartz_trim.json
 369706f114ff3edd6734955853438d27a44bccf8 assets\hender\models\block\shit_block.json

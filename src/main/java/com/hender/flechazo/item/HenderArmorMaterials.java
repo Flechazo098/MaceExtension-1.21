@@ -18,14 +18,14 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class HenderArmorMaterials {
-    //这里是耐久
+    //这里是盔甲值
     public static final RegistryEntry<ArmorMaterial> HENDER_TOOL= register("hender_tool", Util.make(new EnumMap(ArmorItem.Type.class), map -> {
         map.put(ArmorItem.Type.BOOTS, 1919810);
         map.put(ArmorItem.Type.LEGGINGS, 1919810);
         map.put(ArmorItem.Type.CHESTPLATE, 1919810);
         map.put(ArmorItem.Type.HELMET, 1919810);
         map.put(ArmorItem.Type.BODY, 1919810);//下面第一个是附魔等级的机会（数值越高附魔出好魔咒的概率就高），第二个是韧性，第三个是抗击退
-    }), 114514, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.4028235E38F, 3.4028235E38F, () -> Ingredient.ofItems(ModItems.HENDER_TOOL));
+    }), 114514, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 114, 514, () -> Ingredient.ofItems(ModItems.HENDER_TOOL));
     private static RegistryEntry<ArmorMaterial> register(
             String id,
             EnumMap<ArmorItem.Type, Integer> defense,

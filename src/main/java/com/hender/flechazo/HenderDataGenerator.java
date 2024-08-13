@@ -15,6 +15,7 @@ public class HenderDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModBlockTagsProvider::new);
 		pack.addProvider(ModRecipesProvider::new);
 		pack.addProvider(ModLootTableProvider::new);
+		pack.addProvider(ModPointTagProvider::new);
 
 	}
 }

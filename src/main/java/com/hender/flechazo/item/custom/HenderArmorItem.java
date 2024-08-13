@@ -28,7 +28,7 @@ public class HenderArmorItem extends ArmorItem {
                             Arrays.asList(
                                     new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, -1, 10, false, false, false),
                                     new StatusEffectInstance(StatusEffects.RESISTANCE, -1, 10, false, false, false),
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, -1, 2, false, false, false))).build();
+                                    new StatusEffectInstance(StatusEffects.STRENGTH, -1, 5, false, false, false))).build();
     public HenderArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
