@@ -1,6 +1,7 @@
 package com.hender.flechazo;
 
 import com.hender.flechazo.block.ModBlocks;
+import com.hender.flechazo.block.entity.HenderBlockEntities;
 import com.hender.flechazo.item.ModItemGroups;
 import com.hender.flechazo.item.ModItems;
 import com.hender.flechazo.util.HenderCustomTraders;
@@ -27,6 +28,7 @@ public class Hender implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		HenderCustomTraders.registerHenderCustomTraders();
 		HenderVillagers.registerHenderVillagers();
+		HenderBlockEntities.registerBlockEntities();
 
 		LOGGER.info("Hello Fabric world!");
 	}

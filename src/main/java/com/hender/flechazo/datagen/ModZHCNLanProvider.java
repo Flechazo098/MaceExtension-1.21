@@ -2,6 +2,7 @@ package com.hender.flechazo.datagen;
 
 import com.hender.flechazo.block.ModBlocks;
 import com.hender.flechazo.item.ModItems;
+import com.hender.flechazo.villager.HenderVillagers;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -36,6 +37,12 @@ public class ModZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add("item.hender.henderarmoritemleggings.tooltip", "§9按下§6§oshift§r§9显示工具提示");
         translationBuilder.add("item.hender.henderarmoritemboots.shift_tooltip", "§9§o此物为§6§m恒之靴子§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r");
         translationBuilder.add("item.hender.henderarmoritemboots.tooltip", "§9按下§6§oshift§r§9显示工具提示");
+
+        translationBuilder.add(String.valueOf(HenderVillagers.HENGMOU_MASTER), "Hengmou233");
+
+        translationBuilder.add("hender.box", "恒之箱");
+
+        translationBuilder.add(ModItems.HENDER_MACE, "§6恒之重锤");
 
     }
 }

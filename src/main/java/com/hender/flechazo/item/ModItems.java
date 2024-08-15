@@ -3,22 +3,26 @@ package com.hender.flechazo.item;
 
 import com.hender.flechazo.Hender;
 import com.hender.flechazo.item.custom.HenderArmorItem;
+import com.hender.flechazo.item.custom.HenderMaceItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
+
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.MaceItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 
 public class ModItems {
     public static final Item HENDER_TOOL = registerItems("hender_tool", new Item(new Item.Settings()));
 
     private static Item registerItems(String id, Item item) {
-//        return Registry.register(Registries.ITEM, RegistryKey.of(Registries.ITEM.getKey(), Identifier.of(NbhhMod.MOD_ID, id)), item);
         return Registry.register(Registries.ITEM, Identifier.of(Hender.MOD_ID, id), item);
     }
 
@@ -38,4 +42,14 @@ public class ModItems {
             new HenderArmorItem(HenderArmorMaterials.HENDER_TOOL, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(1919810))));
     public static final Item HENDER_TOOL_BOOTS = registerItems("hender_tool_boots",
             new HenderArmorItem(HenderArmorMaterials.HENDER_TOOL, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(1919810))));
+//    MACE = register((String)"mace", (Item)(new MaceItem((new Item.Settings()).rarity(Rarity.EPIC).maxDamage(500).component(DataComponentTypes.TOOL, MaceItem.createToolComponent()).attributeModifiers(MaceItem.createAttributeModifiers()))));
+public static final Item HENDER_MACE = registerItems("hender_mace",
+        new HenderMaceItem(new Item.Settings()
+                .rarity(Rarity.EPIC)
+                .maxDamage(500)
+                .component(DataComponentTypes.TOOL, HenderMaceItem.createToolComponent())
+                .attributeModifiers(HenderMaceItem.createAttributeModifiers())
+        )
+);
+
 }

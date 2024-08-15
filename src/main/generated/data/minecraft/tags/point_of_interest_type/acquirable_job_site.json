@@ -2,7 +2,7 @@
   "values": [
     {
       "id": "hender:hengmou_poi",
-      "required": true
+      "required": false
     }
   ]
 }

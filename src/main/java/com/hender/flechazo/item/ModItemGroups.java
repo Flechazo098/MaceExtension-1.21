@@ -25,10 +25,12 @@ public class ModItemGroups {
                             .entries(
                                     (displayContext, entries) -> {
                                 entries.add(ModItems.HENDER_TOOL);
+                                entries.add(ModItems.HENDER_MACE);
 
                                 entries.add(ModBlocks.HENDER_TOOL_BLOCK);
                                 entries.add(ModBlocks.HENDER_TOOL_ORE);
                                 entries.add(ModBlocks.SHIT_BLOCK);
+                                entries.add(ModBlocks.HENDER_BOX);
 
                                 entries.add(ModItems.HENDER_TOOL_HELMET);
                                 entries.add(ModItems.HENDER_TOOL_CHESTPLATE);

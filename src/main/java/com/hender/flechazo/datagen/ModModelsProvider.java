@@ -30,5 +30,7 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor((ArmorItem) ModItems.HENDER_TOOL_BOOTS);
 
         itemModelGenerator.register(ModItems.HENDER_TOOL, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.HENDER_MACE, Models.HANDHELD);
     }
 }

@@ -18,7 +18,8 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
                     .add(ModItems.HENDER_TOOL_HELMET)
                     .add(ModItems.HENDER_TOOL_CHESTPLATE)
                     .add(ModItems.HENDER_TOOL_LEGGINGS)
-                    .add(ModItems.HENDER_TOOL_BOOTS);
+                    .add(ModItems.HENDER_TOOL_BOOTS)
+                    .add(ModItems.HENDER_MACE);
         }
 }
 
