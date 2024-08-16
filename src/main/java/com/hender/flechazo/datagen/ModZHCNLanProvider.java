@@ -17,7 +17,6 @@ public class ModZHCNLanProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModItems.HENDER_TOOL, "§8小恒某人");
         translationBuilder.add(ModItems.HENDER_TOOL_HELMET, "§6恒之头盔");
         translationBuilder.add(ModItems.HENDER_TOOL_CHESTPLATE, "§6恒之胸甲");
         translationBuilder.add(ModItems.HENDER_TOOL_LEGGINGS, "§6恒之护腿");
@@ -28,6 +27,7 @@ public class ModZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.SHIT_BLOCK, "§6豪赤的");
         translationBuilder.add(ModBlocks.HENDER_TOOL_BLOCK, "§6恒块");
         translationBuilder.add(ModBlocks.HENDER_TOOL_ORE, "§6恒矿");
+        translationBuilder.add(ModBlocks.SYNTHESIZER, "合成器");
 
         translationBuilder.add("item.hender.henderarmoritemhelmet.shift_tooltip", "§9§o此物为§6§m恒之头盔§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r");
         translationBuilder.add("item.hender.henderarmoritemhelmet.tooltip", "§9按下§6§oshift§r§9显示工具提示");
@@ -37,12 +37,18 @@ public class ModZHCNLanProvider extends FabricLanguageProvider {
         translationBuilder.add("item.hender.henderarmoritemleggings.tooltip", "§9按下§6§oshift§r§9显示工具提示");
         translationBuilder.add("item.hender.henderarmoritemboots.shift_tooltip", "§9§o此物为§6§m恒之靴子§r§9§o，含有§6超高防御§r§9§o，穿着全套可有§6不死之身§r");
         translationBuilder.add("item.hender.henderarmoritemboots.tooltip", "§9按下§6§oshift§r§9显示工具提示");
+        translationBuilder.add("item.hender.hendermaceitem.shift_tooltip", "§9§o此物为§6§m恒之重锤§r§9§o，含有§6超高攻击、攻速,冲击力§r§9§o（飞起来）§r");
+        translationBuilder.add("item.hender.hendermaceitem.tooltip", "§9按下§6§oshift§r§9显示工具提示");
+        translationBuilder.add("item.hender.setitem.tooltip", "§6喝下去好像并没有什么效果，它是干嘛的呢？");
+        translationBuilder.add("item.hender.synthesizer.tooltip", "由于某些原因只能朝向南面，这是为什么呢？");
 
         translationBuilder.add(String.valueOf(HenderVillagers.HENGMOU_MASTER), "Hengmou233");
 
-        translationBuilder.add("hender.box", "恒之箱");
+        translationBuilder.add("container.SynthesizerBlockEntity", "合成器");
 
+        translationBuilder.add(ModItems.HENDER_TOOL, "§6恒之宝石");
         translationBuilder.add(ModItems.HENDER_MACE, "§6恒之重锤");
-
+        translationBuilder.add(ModItems.SANCTUS_ELIXIR_OF_TRANSMUTATION, "§6转晶圣液");
+        translationBuilder.add(ModItems.EMPTY_SANCTUS_ELIXIR_OF_TRANSMUTATION, "空药水瓶");
     }
 }

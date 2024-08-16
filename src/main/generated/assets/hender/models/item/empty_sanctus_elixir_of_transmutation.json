@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hender:item/empty_sanctus_elixir_of_transmutation"
+  }
+}

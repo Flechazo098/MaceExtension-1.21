@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "hender:block/synthesizer",
+    "front": "hender:block/synthesizer_front",
+    "side": "hender:block/synthesizer_other",
+    "bottom": "hender:block/synthesizer"
+  }
+}

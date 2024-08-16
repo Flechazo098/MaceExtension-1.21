@@ -1,6 +1,7 @@
 package com.hender.flechazo.datagen;
 
 import com.hender.flechazo.item.ModItems;
+import dev.architectury.platform.Mod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -18,8 +19,10 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
                     .add(ModItems.HENDER_TOOL_HELMET)
                     .add(ModItems.HENDER_TOOL_CHESTPLATE)
                     .add(ModItems.HENDER_TOOL_LEGGINGS)
-                    .add(ModItems.HENDER_TOOL_BOOTS)
+                    .add(ModItems.HENDER_TOOL_BOOTS);
+            getOrCreateTagBuilder(ItemTags.MACE_ENCHANTABLE)
                     .add(ModItems.HENDER_MACE);
+
         }
 }
 

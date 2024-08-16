@@ -1,6 +1,6 @@
 package com.hender.flechazo.datagen;
 
-import com.hender.flechazo.Hender;
+import com.hender.Hender;
 import net.minecraft.data.DataOutput;
 import net.minecraft.data.server.tag.TagProvider;
 import net.minecraft.registry.RegistryKeys;

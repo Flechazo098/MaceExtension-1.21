@@ -1,18 +1,19 @@
 package com.hender.flechazo.item;
 
 
-import com.hender.flechazo.Hender;
+import com.hender.Hender;
 import com.hender.flechazo.item.custom.HenderArmorItem;
 import com.hender.flechazo.item.custom.HenderMaceItem;
+import com.hender.flechazo.item.custom.SETItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
-import net.minecraft.item.MaceItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -21,6 +22,7 @@ import net.minecraft.util.Rarity;
 
 public class ModItems {
     public static final Item HENDER_TOOL = registerItems("hender_tool", new Item(new Item.Settings()));
+    public static final Item EMPTY_SANCTUS_ELIXIR_OF_TRANSMUTATION = registerItems("empty_sanctus_elixir_of_transmutation" , new Item(new Item.Settings().maxCount(1)));
 
     private static Item registerItems(String id, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Hender.MOD_ID, id), item);
@@ -31,7 +33,7 @@ public class ModItems {
     }
 
     public static void registerItems() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemToIG);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemToIG);
         Hender.LOGGER.info("Registering Items");
     }
     public static final Item HENDER_TOOL_HELMET = registerItems("hender_tool_helmet",
@@ -42,14 +44,12 @@ public class ModItems {
             new HenderArmorItem(HenderArmorMaterials.HENDER_TOOL, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(1919810))));
     public static final Item HENDER_TOOL_BOOTS = registerItems("hender_tool_boots",
             new HenderArmorItem(HenderArmorMaterials.HENDER_TOOL, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(1919810))));
-//    MACE = register((String)"mace", (Item)(new MaceItem((new Item.Settings()).rarity(Rarity.EPIC).maxDamage(500).component(DataComponentTypes.TOOL, MaceItem.createToolComponent()).attributeModifiers(MaceItem.createAttributeModifiers()))));
+    public static final Item SANCTUS_ELIXIR_OF_TRANSMUTATION = registerItems("sanctus_elixir_of_transmutation",
+            new SETItem(new Item.Settings().maxCount(1).component(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT)));
+
+
+
 public static final Item HENDER_MACE = registerItems("hender_mace",
-        new HenderMaceItem(new Item.Settings()
-                .rarity(Rarity.EPIC)
-                .maxDamage(500)
-                .component(DataComponentTypes.TOOL, HenderMaceItem.createToolComponent())
-                .attributeModifiers(HenderMaceItem.createAttributeModifiers())
-        )
-);
+        new HenderMaceItem(new Item.Settings().rarity(Rarity.EPIC).maxDamage(500).component(DataComponentTypes.TOOL, HenderMaceItem.createToolComponent()).attributeModifiers(HenderMaceItem.createAttributeModifiers())));
 
 }

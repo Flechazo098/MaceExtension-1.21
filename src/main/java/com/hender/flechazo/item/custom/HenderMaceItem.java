@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import com.hender.flechazo.item.ModItems;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
@@ -18,21 +19,23 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.MaceItem;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Direction.Axis;
 import net.minecraft.world.World;
 
 public class HenderMaceItem extends MaceItem {
-    private static final int ATTACK_DAMAGE_MODIFIER_VALUE = 35; // 自定义攻击伤害
+    private static final int ATTACK_DAMAGE_MODIFIER_VALUE = 50; // 自定义攻击伤害
     private static final float ATTACK_SPEED_MODIFIER_VALUE = 2.5F; // 自定义攻击速度
     public static final float MINING_SPEED_MULTIPLIER = 3.0F; // 自定义挖掘速度
-    public static final float KNOCKBACK_RANGE = 4.0F; // 自定义击退范围
     private static final float KNOCKBACK_POWER = 1.0F; // 自定义击退力量
 
     public HenderMaceItem(Item.Settings settings) {
@@ -73,11 +76,26 @@ public class HenderMaceItem extends MaceItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (attacker instanceof ServerPlayerEntity serverPlayerEntity) {
             if (shouldDealAdditionalDamage(serverPlayerEntity)) {
-                // 设置角色的速度和发送网络数据包
-                ServerWorld serverWorld = (ServerWorld) attacker.getWorld();
-                serverPlayerEntity.setVelocity(serverPlayerEntity.getVelocity().withAxis(Axis.Y, 0.01));
+                ServerWorld serverWorld = (ServerWorld)attacker.getWorld();
+                if (serverPlayerEntity.shouldIgnoreFallDamageFromCurrentExplosion() && serverPlayerEntity.currentExplosionImpactPos != null) {
+                    if (serverPlayerEntity.currentExplosionImpactPos.y > serverPlayerEntity.getPos().y) {
+                        serverPlayerEntity.currentExplosionImpactPos = serverPlayerEntity.getPos();
+                    }
+                } else {
+                    serverPlayerEntity.currentExplosionImpactPos = serverPlayerEntity.getPos();
+                }
+
+                serverPlayerEntity.setIgnoreFallDamageFromCurrentExplosion(true);
+                serverPlayerEntity.setVelocity(serverPlayerEntity.getVelocity().withAxis(Axis.Y, 0.009999999776482582));
                 serverPlayerEntity.networkHandler.sendPacket(new EntityVelocityUpdateS2CPacket(serverPlayerEntity));
-                // 击退附近的实体
+                if (target.isOnGround()) {
+                    serverPlayerEntity.setSpawnExtraParticlesOnFall(true);
+                    SoundEvent soundEvent = serverPlayerEntity.fallDistance > 5.0F ? SoundEvents.ITEM_MACE_SMASH_GROUND_HEAVY : SoundEvents.ITEM_MACE_SMASH_GROUND;
+                    serverWorld.playSound(null, serverPlayerEntity.getX(), serverPlayerEntity.getY(), serverPlayerEntity.getZ(), soundEvent, serverPlayerEntity.getSoundCategory(), 1.0F, 1.0F);
+                } else {
+                    serverWorld.playSound(null, serverPlayerEntity.getX(), serverPlayerEntity.getY(), serverPlayerEntity.getZ(), SoundEvents.ITEM_MACE_SMASH_AIR, serverPlayerEntity.getSoundCategory(), 1.0F, 1.0F);
+                }
+
                 knockbackNearbyEntities(serverWorld, serverPlayerEntity, target);
             }
         }
@@ -87,7 +105,7 @@ public class HenderMaceItem extends MaceItem {
     // 处理对目标实体的伤害
     @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damage(1, attacker, EquipmentSlot.MAINHAND); // 对工具的耐久度造成伤害
+        stack.damage(0, attacker, EquipmentSlot.MAINHAND); // 对工具的耐久度造成伤害
         if (shouldDealAdditionalDamage(attacker)) {
             attacker.onLanding(); // 处理额外伤害
         }
@@ -117,11 +135,11 @@ public class HenderMaceItem extends MaceItem {
     // 根据跌落距离计算额外的攻击伤害
     private float calculateBonusDamage(float fallDistance) {
         if (fallDistance <= 5.0F) {
-            return 10.0F * fallDistance;
+            return 50.0F * fallDistance;
         } else if (fallDistance <= 10.0F) {
-            return 18.0F + 3.0F * (fallDistance - 5.0F);
+            return 35.0F + 25.0F * (fallDistance * 5.0F);
         } else {
-            return 30.0F + fallDistance - 10.0F;
+            return 50.0F + fallDistance * 10.0F;
         }
     }
 
@@ -132,10 +150,11 @@ public class HenderMaceItem extends MaceItem {
 
     // 击退附近的实体
     private static void knockbackNearbyEntities(World world, PlayerEntity player, Entity attacked) {
-        world.getEntitiesByClass(LivingEntity.class, attacked.getBoundingBox().expand(KNOCKBACK_RANGE),
+        world.syncWorldEvent(2013, attacked.getSteppingPos(), 750);
+        world.getEntitiesByClass(LivingEntity.class, attacked.getBoundingBox().expand(10.0),
                 getKnockbackPredicate(player, attacked)).forEach(entity -> {
             Vec3d knockbackVec = entity.getPos().subtract(attacked.getPos()).normalize().multiply(KNOCKBACK_POWER);
-            entity.addVelocity(knockbackVec.x, 0.7, knockbackVec.z); // 添加击退效果
+            entity.addVelocity(knockbackVec.x, 5.7, knockbackVec.z); // 添加击退效果
             if (entity instanceof ServerPlayerEntity serverPlayer) {
                 serverPlayer.networkHandler.sendPacket(new EntityVelocityUpdateS2CPacket(serverPlayer));
             }
@@ -145,6 +164,19 @@ public class HenderMaceItem extends MaceItem {
     // 获取击退实体的条件
     private static Predicate<LivingEntity> getKnockbackPredicate(PlayerEntity player, Entity attacked) {
         return entity -> !entity.isSpectator() && entity != player && entity != attacked && !player.isTeammate(entity) &&
-                attacked.squaredDistanceTo(entity) <= Math.pow(KNOCKBACK_RANGE, 2);
+                attacked.squaredDistanceTo(entity) <= Math.pow(10.0,  2);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
+        if (Screen.hasShiftDown()){
+            if (stack.getItem() == ModItems.HENDER_MACE){
+                tooltip.add(Text.translatable("item.hender.hendermaceitem.shift_tooltip"));
+            }
+        }
+        else {
+            tooltip.add(Text.translatable("item.hender.hendermaceitem.tooltip"));
+        }
     }
 }

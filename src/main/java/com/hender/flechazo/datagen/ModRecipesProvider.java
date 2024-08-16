@@ -1,6 +1,6 @@
 package com.hender.flechazo.datagen;
 
-import com.hender.flechazo.Hender;
+import com.hender.Hender;
 import com.hender.flechazo.block.ModBlocks;
 import com.hender.flechazo.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;

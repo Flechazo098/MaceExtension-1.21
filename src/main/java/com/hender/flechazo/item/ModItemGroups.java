@@ -1,6 +1,6 @@
 package com.hender.flechazo.item;
 
-import com.hender.flechazo.Hender;
+import com.hender.Hender;
 import com.hender.flechazo.block.ModBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,16 +26,20 @@ public class ModItemGroups {
                                     (displayContext, entries) -> {
                                 entries.add(ModItems.HENDER_TOOL);
                                 entries.add(ModItems.HENDER_MACE);
+                                entries.add(ModItems.SANCTUS_ELIXIR_OF_TRANSMUTATION);
+                                entries.add(ModItems.EMPTY_SANCTUS_ELIXIR_OF_TRANSMUTATION);
 
                                 entries.add(ModBlocks.HENDER_TOOL_BLOCK);
                                 entries.add(ModBlocks.HENDER_TOOL_ORE);
                                 entries.add(ModBlocks.SHIT_BLOCK);
-                                entries.add(ModBlocks.HENDER_BOX);
+                                entries.add(ModBlocks.SYNTHESIZER);
 
                                 entries.add(ModItems.HENDER_TOOL_HELMET);
                                 entries.add(ModItems.HENDER_TOOL_CHESTPLATE);
                                 entries.add(ModItems.HENDER_TOOL_LEGGINGS);
                                 entries.add(ModItems.HENDER_TOOL_BOOTS);
+
+
                             }
                             )
                             .build());

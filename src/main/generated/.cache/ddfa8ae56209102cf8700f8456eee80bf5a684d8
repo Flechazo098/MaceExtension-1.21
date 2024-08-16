@@ -1,4 +1,4 @@
-// 1.21	2024-08-14T22:27:55.6438899	Hender/Model Definitions
+// 1.21	2024-08-16T15:48:39.6066764	Hender/Model Definitions
 0860a29d073de11b11b011a630f024f354f5570b assets\hender\models\item\hender_tool_block.json
 20370ea4bf855581edc21c94c586302f8ea62f5f assets\hender\models\item\hender_tool_leggings.json
 e2a1528e073110abb224e5bb91cfe9e9df66b349 assets\hender\models\item\hender_tool_helmet_lapis_trim.json
@@ -13,6 +13,7 @@ fa8841c65b3c04216a4a31c6438452c732e942d3 assets\hender\models\item\hender_tool_l
 90efa5b214ec1ac8ba8b511ad0c301769dc5444b assets\hender\models\item\hender_tool_helmet_redstone_trim.json
 36ef3dac7a78a6374e6ac7409f87f2bc6950ffcf assets\hender\models\item\hender_tool_boots_iron_trim.json
 041b183d0376178cc9aa1949c07e6daca94eaf02 assets\hender\models\block\hender_tool_block.json
+aad662efb2f4ac64b04edd83653a4da7e86f371b assets\hender\models\item\sanctus_elixir_of_transmutation.json
 8ee99d706d3ab4495218aa0206071f83148b3455 assets\hender\models\item\hender_tool_leggings_iron_trim.json
 8fcd8e5a9983149887aac5f0fa105129b35a536c assets\hender\models\block\hender_tool_ore.json
 9b69fd2adc2629d405be302b779440776f904d53 assets\hender\models\item\hender_tool_chestplate_redstone_trim.json
@@ -30,8 +31,9 @@ ec35d0a13d0fb4a3716cc89c6d0fd5bc930dfbe9 assets\hender\models\item\hender_tool_b
 5b0513636fc111ceb8fcc9307be44a0d58af08c9 assets\hender\models\item\hender_tool_boots_netherite_trim.json
 2db63414806bc10d79db01cf1626ed7320703c1e assets\hender\models\item\shit_block.json
 cc20f9f1cc9cfe5fa1313584322aab7fa006fafb assets\hender\models\item\hender_tool_chestplate_gold_trim.json
-de91fe31bc8f4bcef8990d6c5adae6a2dfa64e8c assets\hender\models\item\hender_tool_helmet_diamond_trim.json
 fc6e90874708d928656bdea6e91faa78faf82ed1 assets\hender\blockstates\shit_block.json
+de91fe31bc8f4bcef8990d6c5adae6a2dfa64e8c assets\hender\models\item\hender_tool_helmet_diamond_trim.json
+9dce407d3072461ba7878ee3fbb3b8df99a687dd assets\hender\models\item\empty_sanctus_elixir_of_transmutation.json
 856d8d65c99b067f7f5798050b2198686062cebe assets\hender\models\item\hender_tool_boots_gold_trim.json
 b69c46c4e9e54a5b2c20a12bb5dc890131288ffb assets\hender\models\item\hender_tool_boots_lapis_trim.json
 05013fb2f3e16cb8c790d7392bc446a56044c123 assets\hender\models\item\hender_tool_helmet.json

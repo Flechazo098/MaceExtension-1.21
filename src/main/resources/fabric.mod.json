@@ -16,10 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.hender.flechazo.Hender"
+          "com.hender.Hender"
+		],
+		"client": [
+			"com.hender.HenderClient"
 		],
 		"fabric-datagen": [
-			"com.hender.flechazo.HenderDataGenerator"
+          "com.hender.HenderDataGenerator"
 		]
 	},
 	"mixins": [

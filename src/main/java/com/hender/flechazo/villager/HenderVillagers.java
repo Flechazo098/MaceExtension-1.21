@@ -1,7 +1,7 @@
 package com.hender.flechazo.villager;
 
 import com.google.common.collect.ImmutableSet;
-import com.hender.flechazo.Hender;
+import com.hender.Hender;
 import com.hender.flechazo.block.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.block.Block;

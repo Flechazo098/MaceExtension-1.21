@@ -1,6 +1,6 @@
 //package com.hender.flechazo.compat;
 //
-//import com.hender.flechazo.Hender;
+//import com.hender.Hender;
 //import com.hender.flechazo.block.ModBlocks;
 //import me.shedaniel.math.Point;
 //import me.shedaniel.math.Rectangle;

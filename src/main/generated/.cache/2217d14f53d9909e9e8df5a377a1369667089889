@@ -1,4 +1,5 @@
-// 1.21	2024-08-14T22:27:55.6528705	Hender/Block Loot Tables
+// 1.21	2024-08-16T15:48:39.6139382	Hender/Block Loot Tables
 462d8c45278524ec5c9e457c95d5337388021ff9 data\hender\loot_table\blocks\shit_block.json
 8a2ec61b6e4900763a99f8e87829aadadc90f3e2 data\hender\loot_table\blocks\hender_tool_block.json
+8beb80a1b727e1ced9198ada0cfa1763e70bf277 data\hender\loot_table\blocks\synthesizer.json
 254f9c781169806f5cb30e4e77ef004013e29f45 data\hender\loot_table\blocks\hender_tool_ore.json
