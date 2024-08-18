@@ -26,12 +26,17 @@ public class ModItemGroups {
                                     (displayContext, entries) -> {
                                 entries.add(ModItems.HENDER_TOOL);
                                 entries.add(ModItems.HENDER_MACE);
+                                entries.add(ModItems.WOODEN_MACE);
+                                entries.add(ModItems.STONE_MACE);
+                                entries.add(ModItems.IRON_MACE);
+                                entries.add(ModItems.GOLD_MACE);
+                                entries.add(ModItems.DIAMOND_MACE);
+                                entries.add(ModItems.NETHERITE_MACE);
                                 entries.add(ModItems.SANCTUS_ELIXIR_OF_TRANSMUTATION);
                                 entries.add(ModItems.EMPTY_SANCTUS_ELIXIR_OF_TRANSMUTATION);
 
                                 entries.add(ModBlocks.HENDER_TOOL_BLOCK);
                                 entries.add(ModBlocks.HENDER_TOOL_ORE);
-                                entries.add(ModBlocks.SHIT_BLOCK);
                                 entries.add(ModBlocks.SYNTHESIZER);
 
                                 entries.add(ModItems.HENDER_TOOL_HELMET);

@@ -16,7 +16,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.HENDER_TOOL_ORE)
-                .add(ModBlocks.SHIT_BLOCK)
                 .add(ModBlocks.HENDER_TOOL_BLOCK)
                 .add(ModBlocks.SYNTHESIZER);
     }

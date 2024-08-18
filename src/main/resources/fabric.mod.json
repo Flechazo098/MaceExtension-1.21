@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "hender",
-	"version": "1.0",
-	"name": "Hender",
-	"description": "恒某人专属mod",
+	"id": "mace_extension",
+	"version": "0.1",
+	"name": "Mace extension",
+	"description": "A mace extension mod that allows you to experience the fun of mace anytime",
 	"authors": [
 		"Flechazo"
 	],

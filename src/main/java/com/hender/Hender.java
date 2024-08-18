@@ -5,8 +5,6 @@ import com.hender.flechazo.block.entity.HenderBlockEntities;
 import com.hender.flechazo.item.ModItemGroups;
 import com.hender.flechazo.item.ModItems;
 import com.hender.flechazo.screen.HenderScreenHandlers;
-import com.hender.flechazo.util.HenderCustomTraders;
-import com.hender.flechazo.villager.HenderVillagers;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +25,6 @@ public class Hender implements ModInitializer {
 		ModItems.registerItems();
 		ModItemGroups.registerModItemGroups();
 		ModBlocks.registerModBlocks();
-		HenderCustomTraders.registerHenderCustomTraders();
-		HenderVillagers.registerHenderVillagers();
 		HenderBlockEntities.registerBlockEntities();
 		HenderScreenHandlers.registerScreenHandler();
 

@@ -1,5 +1,12 @@
 {
   "values": [
-    "hender:hender_mace"
+    "hender:hender_mace",
+    "hender:wooden_mace",
+    "hender:stone_mace",
+    "hender:stone_mace",
+    "hender:gold_mace",
+    "hender:iron_mace",
+    "hender:diamond_mace",
+    "hender:netherite_mace"
   ]
 }

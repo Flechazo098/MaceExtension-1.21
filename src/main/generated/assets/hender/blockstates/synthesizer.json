@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "hender:block/synthesizer",
+      "y": 90
+    },
+    "facing=north": {
       "model": "hender:block/synthesizer"
+    },
+    "facing=south": {
+      "model": "hender:block/synthesizer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hender:block/synthesizer",
+      "y": 270
     }
   }
 }

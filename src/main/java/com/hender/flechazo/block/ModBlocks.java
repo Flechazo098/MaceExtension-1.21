@@ -14,7 +14,6 @@ import net.minecraft.util.Identifier;
 
 public class ModBlocks {
     public static final Block HENDER_TOOL_ORE = register("hender_tool_ore",new Block(AbstractBlock.Settings.create().strength(4.5f,12.0f)));
-    public static final Block SHIT_BLOCK = register("shit_block",new Block(AbstractBlock.Settings.create().strength(1.0f,2.0f)));
     public static final Block HENDER_TOOL_BLOCK = register("hender_tool_block",new Block(AbstractBlock.Settings.create().strength(4.5f,16.0f)));
     public static final Block SYNTHESIZER = register("synthesizer", new Synthesizer(AbstractBlock.Settings.copy(Blocks.STONE)));
     public static void registerBlockItems(String id, Block block){

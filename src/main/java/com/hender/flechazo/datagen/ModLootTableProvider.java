@@ -16,7 +16,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(ModBlocks.HENDER_TOOL_ORE);
         addDrop(ModBlocks.HENDER_TOOL_BLOCK);
-        addDrop(ModBlocks.SHIT_BLOCK);
         addDrop(ModBlocks.SYNTHESIZER);
     }
 }

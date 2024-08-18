@@ -16,77 +16,87 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HenderArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(HenderArmorMaterials.HENDER_TOOL.value(),
                             //这里第一个是效果时间，第二个是等级，第三个是环境显示，第四个粒子显示，第五个图标显示
-                            Arrays.asList(
-                                    new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, -1, 10, false, false, false),
-                                    new StatusEffectInstance(StatusEffects.RESISTANCE, -1, 10, false, false, false),
-                                    new StatusEffectInstance(StatusEffects.STRENGTH, -1, 5, false, false, false))).build();
+                            Arrays.asList(new StatusEffectInstance(StatusEffects.SATURATION, -1, 5, false, false, false))).build();
+
     public HenderArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient() && entity instanceof PlayerEntity player && hasFullSuitOfArmor(player)){
+        if (!world.isClient() && entity instanceof PlayerEntity player) {
             evaluateArmorEffects(player);
         }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
     private void evaluateArmorEffects(PlayerEntity player) {
-        for (Map.Entry<ArmorMaterial,  List<StatusEffectInstance>> entry : MAP.entrySet()){
+        Set<ArmorMaterial> materialsWithEffects = new HashSet<>();
+
+        for (Map.Entry<ArmorMaterial, List<StatusEffectInstance>> entry : MAP.entrySet()) {
             ArmorMaterial material = entry.getKey();
             List<StatusEffectInstance> effects = entry.getValue();
 
-            if (hasCorrectArmorSet(player, material)){
-                for (StatusEffectInstance effect : effects){
+            if (hasCorrectArmorSet(player, material)) {
+                materialsWithEffects.add(material);
+
+                for (StatusEffectInstance effect : effects) {
                     addStatusEffectForMaterial(player, effect);
+                }
+            } else {
+                removeStatusEffectsForMaterial(player, material);
+            }
+        }
+
+        removeEffectsOfUnwornMaterials(player, materialsWithEffects);
+    }
+
+    private void addStatusEffectForMaterial(PlayerEntity player, StatusEffectInstance effect) {
+        if (!player.hasStatusEffect(effect.getEffectType())) {
+            player.addStatusEffect(new StatusEffectInstance(effect));
+        }
+    }
+
+    private void removeStatusEffectsForMaterial(PlayerEntity player, ArmorMaterial material) {
+        List<StatusEffectInstance> effects = MAP.get(material);
+
+        if (effects != null) {
+            for (StatusEffectInstance effect : effects) {
+                if (player.hasStatusEffect(effect.getEffectType())) {
+                    player.removeStatusEffect(effect.getEffectType());
                 }
             }
         }
     }
 
-    private void addStatusEffectForMaterial(PlayerEntity player, StatusEffectInstance effect) {
-        boolean hasEffect = player.hasStatusEffect(effect.getEffectType());
+    private void removeEffectsOfUnwornMaterials(PlayerEntity player, Set<ArmorMaterial> wornMaterials) {
+        for (Map.Entry<ArmorMaterial, List<StatusEffectInstance>> entry : MAP.entrySet()) {
+            ArmorMaterial material = entry.getKey();
 
-        if (!hasEffect){
-            player.addStatusEffect(new StatusEffectInstance(effect));
+            if (!wornMaterials.contains(material)) {
+                removeStatusEffectsForMaterial(player, material);
+            }
         }
     }
 
     private boolean hasCorrectArmorSet(PlayerEntity player, ArmorMaterial material) {
-    for (ItemStack stack : player.getInventory().armor){
-        if (!(stack.getItem() instanceof ArmorItem)){
-            return false;
-            }
-        }
-
-    ArmorItem helmet = (ArmorItem) player.getInventory().getArmorStack(3).getItem();
-    ArmorItem chestplate = (ArmorItem) player.getInventory().getArmorStack(2).getItem();
-    ArmorItem leggings = (ArmorItem) player.getInventory().getArmorStack(1).getItem();
-    ArmorItem boots = (ArmorItem) player.getInventory().getArmorStack(0).getItem();
-
-    return helmet.getMaterial().value() == material &&
-            chestplate.getMaterial().value() == material &&
-            leggings.getMaterial().value() == material &&
-            boots.getMaterial().value() == material;
-    }
-
-    private boolean hasFullSuitOfArmor(PlayerEntity player) {
         ItemStack helmet = player.getInventory().getArmorStack(3);
         ItemStack chestplate = player.getInventory().getArmorStack(2);
         ItemStack leggings = player.getInventory().getArmorStack(1);
         ItemStack boots = player.getInventory().getArmorStack(0);
 
-        return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty();
+        return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty()
+                && helmet.getItem() instanceof ArmorItem && ((ArmorItem) helmet.getItem()).getMaterial().value() == material
+                && chestplate.getItem() instanceof ArmorItem && ((ArmorItem) chestplate.getItem()).getMaterial().value() == material
+                && leggings.getItem() instanceof ArmorItem && ((ArmorItem) leggings.getItem()).getMaterial().value() == material
+                && boots.getItem() instanceof ArmorItem && ((ArmorItem) boots.getItem()).getMaterial().value() == material;
     }
 
     @Override
@@ -94,7 +104,6 @@ public class HenderArmorItem extends ArmorItem {
         super.appendTooltip(stack, context, tooltip, type);
 
         if (Screen.hasShiftDown()) {
-            // Check the item type and add the corresponding tooltip
             if (stack.getItem() == ModItems.HENDER_TOOL_HELMET) {
                 tooltip.add(Text.translatable("item.hender.henderarmoritemhelmet.shift_tooltip"));
             } else if (stack.getItem() == ModItems.HENDER_TOOL_CHESTPLATE) {
@@ -105,7 +114,6 @@ public class HenderArmorItem extends ArmorItem {
                 tooltip.add(Text.translatable("item.hender.henderarmoritemboots.shift_tooltip"));
             }
         } else {
-            // Check the item type and add the corresponding tooltip
             if (stack.getItem() == ModItems.HENDER_TOOL_HELMET) {
                 tooltip.add(Text.translatable("item.hender.henderarmoritemhelmet.tooltip"));
             } else if (stack.getItem() == ModItems.HENDER_TOOL_CHESTPLATE) {

@@ -19,7 +19,6 @@ public class ModModelsProvider extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HENDER_TOOL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HENDER_TOOL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SHIT_BLOCK);
     }
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
@@ -33,5 +32,12 @@ public class ModModelsProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.EMPTY_SANCTUS_ELIXIR_OF_TRANSMUTATION, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HENDER_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WOODEN_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.STONE_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.IRON_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GOLD_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.DIAMOND_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NETHERITE_MACE, Models.HANDHELD);
+
     }
 }
