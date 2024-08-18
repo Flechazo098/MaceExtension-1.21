@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class SynthesizerScreen extends HandledScreen<SynthesizerScreenHandler> {
-    private static final Identifier TEXTURES = Identifier.of(Hender.MOD_ID, "textures/gui/synthesizer_gui_full.png");
+    private static final Identifier TEXTURES = Identifier.of(Hender.MOD_ID, "textures/gui/synthesizer_gui.png");
     public SynthesizerScreen(SynthesizerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
@@ -25,11 +25,27 @@ public class SynthesizerScreen extends HandledScreen<SynthesizerScreenHandler> {
 
         context.drawTexture(TEXTURES, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
-        renderProgressArrow(context, x, y);
+        renderProgress1(context, x, y);
+        renderProgress2(context, x, y);
+        renderProgress3(context, x, y);
     }
-    private void renderProgressArrow(DrawContext context, int x, int y) {
+
+    private void renderProgress3(DrawContext context, int x, int y) {
         if (handler.isCrafting() && handler.isRaining()){
-            context.drawTexture(TEXTURES, x+85, y+30, 176, 0, 8, handler.getScaledProgress());
+            context.drawTexture(TEXTURES, x + 133, y + 21, 176, 50, handler.getScaledProgress3(), handler.getScaledProgress4());
+        }
+    }
+
+    private void renderProgress2(DrawContext context, int x, int y) {
+        if (handler.isCrafting() && handler.isRaining()){
+            context.drawTexture(TEXTURES, x + 24, y + 24, 176, 36, handler.getScaledProgress2(), 12);
+        }
+    }
+
+    private void renderProgress1(DrawContext context, int x, int y) {
+
+        if (handler.isCrafting() && handler.isRaining()){
+            context.drawTexture(TEXTURES, x + 7, y + 51,176 ,22, 18, handler.getScaledProgress1());
         }
     }
 }

@@ -9,11 +9,15 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.EnumProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ItemScatterer;
@@ -34,6 +38,7 @@ public class Synthesizer extends BlockWithEntity implements BlockEntityProvider 
     public Synthesizer(Settings settings) {
         super(settings);
     }
+    public static final EnumProperty<Direction> FACING = Properties.FACING;
 
     @Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -87,10 +92,35 @@ public class Synthesizer extends BlockWithEntity implements BlockEntityProvider 
     }
 
     @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+        super.onPlaced(world, pos, state, placer, itemStack);
+
+        if (placer == null || world.isClient()) {
+            return;
+        }
+
+
+        Direction facing;
+        if (placer instanceof PlayerEntity player) {
+            facing = player.getHorizontalFacing().getOpposite();
+        } else {
+            facing = Direction.NORTH;
+        }
+
+        BlockState newState = state.with(FACING, facing);
+        world.setBlockState(pos, newState, 3);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         super.appendTooltip(stack, context, tooltip, options);
         if (stack.getItem() == ModBlocks.SYNTHESIZER.asItem()){
-        tooltip.add(Text.translatable("item.hender.synthesizer.tooltip"));
+            tooltip.add(Text.translatable("block.hender.synthesizer.tooltip"));
         }
     }
 }
