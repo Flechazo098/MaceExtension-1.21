@@ -2,7 +2,6 @@ package com.hender.flechazo.datagen;
 
 import com.hender.flechazo.block.ModBlocks;
 import com.hender.flechazo.item.ModItems;
-import dev.architectury.platform.Mod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;

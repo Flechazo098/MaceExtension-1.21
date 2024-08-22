@@ -51,7 +51,11 @@ public class SynthesizerScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 3, 109, 17) {
             @Override
             public boolean canInsert(ItemStack stack) {
-                return stack.getItem() == ModItems.HENDER_CORE || stack.getItem() == ModItems.HENDER_CORE_HELMET || stack.getItem() == ModItems.HENDER_CORE_CHESTPLATE || stack.getItem() == ModItems.HENDER_CORE_LEGGINGS || stack.getItem() == ModItems.HENDER_CORE_BOOTS;
+                return stack.getItem() == ModItems.HENDER_CORE
+                        || stack.getItem() == ModItems.HENDER_HELMET_CORE
+                        || stack.getItem() == ModItems.HENDER_CHESTPLATE_CORE
+                        || stack.getItem() == ModItems.HENDER_LEGGINGS_CORE
+                        || stack.getItem() == ModItems.HENDER_BOOTS_CORE;
             }
         });
         this.addSlot(new Slot(inventory, 4, 152, 53) {
@@ -125,29 +129,39 @@ public class SynthesizerScreenHandler extends ScreenHandler {
     public boolean isRaining(){
         return Objects.requireNonNull(blockEntity.getWorld()).isRaining();
     }
-        public int getScaledProgress1(){
-        int progress = propertyDelegate.get(0);
-        int maxProgress = propertyDelegate.get(1);
-        int progressArrowSize = 16;
-        return maxProgress !=0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    public int getScaledProgress(int progressIndex, int progressArrowSize, int minProgress, int maxProgressDivider) {
+        int progress = propertyDelegate.get(progressIndex);
+        int maxProgress = propertyDelegate.get(progressIndex + 1);
+
+        if (maxProgress == 0 || progress == 0) {
+            return 0;
         }
-        public int getScaledProgress2(){
-        int progress2 = propertyDelegate.get(0);
-        int maxProgress2 = propertyDelegate.get(1);
-        int progressArrowSize2 = 45;
-        return maxProgress2 != 0 && progress2 != 0 ? progress2 * progressArrowSize2 / maxProgress2 : 0;
+
+        if (minProgress > 0 && progress <= maxProgress * minProgress / maxProgressDivider) {
+            return progress * progressArrowSize / maxProgress;
+        }
+
+        if (maxProgressDivider > 0 && progress >= maxProgress * minProgress / maxProgressDivider) {
+            return progress * progressArrowSize / maxProgress;
+        }
+
+        return 0;
     }
-    public int getScaledProgress3(){
-        int progress3 = propertyDelegate.get(0);
-        int maxProgress3 = propertyDelegate.get(1);
-        int progressArrowSize3 = 29;
-        return maxProgress3 != 0 && progress3 != 0 && progress3 <= maxProgress3 * 24/53 ? progress3 * progressArrowSize3 / maxProgress3 : 0;
+
+    public int getScaledProgress1() {
+        return getScaledProgress(0, 16, 0, 0);
     }
-    public int getScaledProgress4(){
-        int progress4 = propertyDelegate.get(0);
-        int maxProgress4 = propertyDelegate.get(1);
-        int progressArrowSize4 = 24;
-        return maxProgress4 != 0 && progress4 != 0 && progress4 >= maxProgress4 * 24/53 ? progress4 * progressArrowSize4 / maxProgress4 : 0;
+
+    public int getScaledProgress2() {
+        return getScaledProgress(0, 45, 0, 0);
+    }
+
+    public int getScaledProgress3() {
+        return getScaledProgress(0, 29, 24, 53);
+    }
+
+    public int getScaledProgress4() {
+        return getScaledProgress(0, 24, 24, 53);
     }
 }
 

@@ -15,13 +15,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.MaceItem;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -31,7 +29,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class NetheriteMaceItem extends MaceItem {
-    private static final float ATTACK_DAMAGE_MODIFIER_VALUE = 20.0F; // 自定义攻击伤害
+    private static final float ATTACK_DAMAGE_MODIFIER_VALUE = 8.5F; // 自定义攻击伤害
     private static final float ATTACK_SPEED_MODIFIER_VALUE = 2.5F; // 自定义攻击速度
     public static final float MINING_SPEED_MULTIPLIER = 3.0F; // 自定义挖掘速度
     private static final float KNOCKBACK_POWER = 0.45F; // 自定义击退力量

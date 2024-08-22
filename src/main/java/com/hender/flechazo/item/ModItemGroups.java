@@ -44,6 +44,18 @@ public class ModItemGroups {
                                 entries.add(ModItems.HENDER_TOOL_LEGGINGS);
                                 entries.add(ModItems.HENDER_TOOL_BOOTS);
 
+                                entries.add(ModItems.HENDER_CORE);
+                                entries.add(ModItems.WOODEN_CORE);
+                                entries.add(ModItems.STONE_CORE);
+                                entries.add(ModItems.GOLD_CORE);
+                                entries.add(ModItems.IRON_CORE);
+                                entries.add(ModItems.DIAMOND_CORE);
+                                entries.add(ModItems.NETHERITE_CORE);
+                                entries.add(ModItems.HENDER_HELMET_CORE);
+                                entries.add(ModItems.HENDER_CHESTPLATE_CORE);
+                                entries.add(ModItems.HENDER_LEGGINGS_CORE);
+                                entries.add(ModItems.HENDER_BOOTS_CORE);
+
 
                             }
                             )

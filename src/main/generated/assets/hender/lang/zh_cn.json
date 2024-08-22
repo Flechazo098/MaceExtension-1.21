@@ -32,6 +32,5 @@
   "item.hender.gold_mace": "黄金重锤",
   "item.hender.diamond_mace": "钻石重锤",
   "item.hender.netherite_mace": "下界合金重锤",
-  "block.hender.synthesizer.tooltip": "由于某种不可抗拒的力量导致它只能面向北方，我们用了一股神秘力量使它转了过来",
   "itemGroup.hender.hender_group": "重锤扩展"
 }

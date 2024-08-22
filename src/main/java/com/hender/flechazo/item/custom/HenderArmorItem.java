@@ -22,7 +22,6 @@ public class HenderArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
                     .put(HenderArmorMaterials.HENDER_TOOL.value(),
-                            //这里第一个是效果时间，第二个是等级，第三个是环境显示，第四个粒子显示，第五个图标显示
                             Arrays.asList(new StatusEffectInstance(StatusEffects.SATURATION, -1, 5, false, false, false))).build();
 
     public HenderArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
@@ -125,5 +124,4 @@ public class HenderArmorItem extends ArmorItem {
             }
         }
     }
-
 }

@@ -1,8 +1,6 @@
 package com.hender.flechazo.item;
 
-import com.mojang.datafixers.types.templates.Tag;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
@@ -15,7 +13,6 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.MaceItem;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -31,7 +28,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class StoneMaceItem extends MaceItem {
-    private static final int ATTACK_DAMAGE_MODIFIER_VALUE = 8; // 自定义攻击伤害
+    private static final float ATTACK_DAMAGE_MODIFIER_VALUE = 4.0F; // 自定义攻击伤害
     private static final float ATTACK_SPEED_MODIFIER_VALUE = 2.5F; // 自定义攻击速度
     public static final float MINING_SPEED_MULTIPLIER = 3.0F; // 自定义挖掘速度
     private static final float KNOCKBACK_POWER = 0.4F; // 自定义击退力量

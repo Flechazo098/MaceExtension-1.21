@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class GoldMaceItem extends MaceItem {
-    private static final int ATTACK_DAMAGE_MODIFIER_VALUE = 9; // 自定义攻击伤害
+    private static final float ATTACK_DAMAGE_MODIFIER_VALUE = 4.5F; // 自定义攻击伤害
     private static final float ATTACK_SPEED_MODIFIER_VALUE = 2.5F; // 自定义攻击速度
     public static final float MINING_SPEED_MULTIPLIER = 3.0F; // 自定义挖掘速度
     private static final float KNOCKBACK_POWER = 0.356F; // 自定义击退力量
